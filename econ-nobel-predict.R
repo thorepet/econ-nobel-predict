@@ -60,9 +60,9 @@ url <- c(
 )
 
 texts <- character(0)
-for(i in 1:length(url)) {
+for(u in url) {
   # grab HTML of first page
-  site <- read_html(url[i])
+  site <- read_html(u)
   
   # extract total number of pages
   n_pages <- site %>%
@@ -72,7 +72,7 @@ for(i in 1:length(url)) {
     max
   
   # grab all thread pages' HMTL 
-  sites <- grab_sites(url, n_pages)
+  sites <- grab_sites(u, n_pages)
   sites <- c(list(site), sites)
   
   # extract all posts and their text
@@ -84,9 +84,9 @@ for(i in 1:length(url)) {
 
 # Text analysis -----------------------------------------------------------
 
-t <- paste(texts, collapse = "; ")
+t <- str_split(texts, "\\s", simplify = TRUE)
 t <- string_clean(t)
-t <- str_split(t, "\\s", simplify = TRUE)
+t <- t[!is.na(t)]
 
 s <- stopwords(language = "en", source = "snowball")
 
