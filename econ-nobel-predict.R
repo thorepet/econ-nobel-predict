@@ -86,6 +86,8 @@ for(u in url) {
 t <- str_split(texts, "\\s", simplify = TRUE)
 t <- string_clean(t)
 t <- t[!is.na(t)]
+# split again after cleaning to capture some hidden names
+t <- str_split(t, "\\s", simplify = TRUE)
 
 s <- stopwords(language = "en", source = "snowball")
 
@@ -109,7 +111,11 @@ remove_patterns <- c(
   "discuss\\w*", "obligat\\w*", "break\\w*", "top", "two", "win\\w*", "range", 
   "get\\w*", "one", "another", "betting", "banned", "corrupt\\w*", "fingers",
   "expectation\\w*", "may", "number", "author\\w*", "weight\\w*", "impact\\w*",
-  "old", "three", "weird", "never"
+  "old", "three", "weird", "never", "comb\\w*", "use\\w*", "hug", "ors", 
+  "werden", "complete\\w*", "coming", "distinct\\w*", "dude\\w*", "else", 
+  "except", "experiment\\w*", "four", "idea", "hard", "laureate", "less", 
+  "heard", "new", "next", "nobody", "obvious\\w*", "rank\\w*", "https", "won",
+  "first", "now", "theor\\w*", "business", "development"
 )
 remove_patterns <- paste(remove_patterns, collapse = "|")
 t <- str_remove_all(t, remove_patterns)
