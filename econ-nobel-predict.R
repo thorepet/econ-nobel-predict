@@ -13,7 +13,6 @@ library(rvest)
 library(stopwords)
 library(stringr)
 library(thoremisc) # devtools::install_github("thorepet/thoremisc")
-library(data.table)
 
 
 # Define functions --------------------------------------------------------
@@ -120,7 +119,8 @@ t <- string_redund_ws(t)
 t <- t[str_length(t) > 2]
 
 # make it a contingency table
-predictions <- as.data.table(table(t))
-setorder(predictions, -N)
+predictions <- as.data.frame(table(t))
+colnames(predictions) <- c("probably_name", "n")
+predictions <- predictions[order(predictions$n, decreasing = TRUE), ]
 
 View(predictions)
