@@ -109,7 +109,8 @@ remove_patterns <- c(
   "guess\\w*", "demand", "empiric\\w*", "firm\\w*", "industr\\w*", "production",
   "discuss\\w*", "obligat\\w*", "break\\w*", "top", "two", "win\\w*", "range", 
   "get\\w*", "one", "another", "betting", "banned", "corrupt\\w*", "fingers",
-  "expectation\\w*", "may"
+  "expectation\\w*", "may", "number", "author\\w*", "weight\\w*", "impact\\w*",
+  "old", "three", "weird", "never"
 )
 remove_patterns <- paste(remove_patterns, collapse = "|")
 t <- str_remove_all(t, remove_patterns)
