@@ -111,11 +111,16 @@ remove_patterns <- c(
   "discuss\\w*", "obligat\\w*", "break\\w*", "top", "two", "win\\w*", "range", 
   "get\\w*", "one", "another", "betting", "banned", "corrupt\\w*", "fingers",
   "expectation\\w*", "may", "number", "author\\w*", "weight\\w*", "impact\\w*",
-  "old", "three", "weird", "never", "comb\\w*", "use\\w*", "hug", "ors", 
+  "old", "three", "weird", "never", "comb\\w*", "use\\w*", "hug", "factor\\w*",
   "werden", "complete\\w*", "coming", "distinct\\w*", "dude\\w*", "else", 
   "except", "experiment\\w*", "four", "idea", "hard", "laureate", "less", 
   "heard", "new", "next", "nobody", "obvious\\w*", "rank\\w*", "https", "won",
-  "first", "now", "theor\\w*", "business", "development"
+  "first", "now", "theor\\w*", "business", "development", "invent\\w*", 
+  "start\\w*", "account\\w*", "credib\\w*", "wait\\w*", "suggest\\w*", 
+  "retir\\w*", "profess\\w*", "possib\\w*", "phd", "other\\w*", "candidate\\w*",
+  "public\\w*", "let", "male\\w*", "mean\\w*", "postpone", "pointless", "repec",
+  "ready", "crazy", "interest\\w*", "recursive", "score\\w*", "second", "see",
+  "simple"
 )
 remove_patterns <- paste0("\\b", remove_patterns, "\\b", collapse = "|")
 t <- str_remove_all(t, remove_patterns)
