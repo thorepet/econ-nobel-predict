@@ -117,7 +117,7 @@ remove_patterns <- c(
   "heard", "new", "next", "nobody", "obvious\\w*", "rank\\w*", "https", "won",
   "first", "now", "theor\\w*", "business", "development"
 )
-remove_patterns <- paste(remove_patterns, collapse = "|")
+remove_patterns <- paste0("\\b", remove_patterns, "\\b", collapse = "|")
 t <- str_remove_all(t, remove_patterns)
 
 t <- str_remove_all(t, "\\d+")
